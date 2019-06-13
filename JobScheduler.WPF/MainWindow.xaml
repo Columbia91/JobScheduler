@@ -8,26 +8,42 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Calendar Name="calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" 
-                  HorizontalAlignment="Left" Margin="25,75,0,0" VerticalAlignment="Top"/>
-        <xctk:TimePicker Name="timePicker" Value="{Binding CurrentDateTime}" Margin="25,23,588,365"/>
-        <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Margin="239,75,0,0" VerticalAlignment="Top" Width="128">
+        <xctk:DateTimePicker Name="dateAndTime" ValueChanged="DateAndTime_ValueChanged" Margin="36,37,396,348"/>
+        <ComboBox Name="typeComboBox" 
+                  SelectedIndex="0" HorizontalAlignment="Left" Margin="310,141,0,0" VerticalAlignment="Top" Width="128">
             <TextBlock>Скачать файл</TextBlock>
             <TextBlock>Переместить католог</TextBlock>
             <TextBlock>Отправить mail</TextBlock>
         </ComboBox>
-        <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Margin="486,75,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox Name="periodComboBox" Selected="PeriodComboBox_Selected"
+            SelectedIndex="0" HorizontalAlignment="Left" Margin="550,141,0,0" VerticalAlignment="Top" Width="120">
             <TextBlock>Один раз</TextBlock>
             <TextBlock>Каждый день</TextBlock>
             <TextBlock>Каждый месяц</TextBlock>
             <TextBlock>Каждый год</TextBlock>
         </ComboBox>
-        <Label Content="Тип задачи" HorizontalAlignment="Left" Margin="271,36,0,0" VerticalAlignment="Top"/>
-        <Label Content="Периодичность" HorizontalAlignment="Left" Margin="501,36,0,0" VerticalAlignment="Top"/>
-        <Label Content="Источник" HorizontalAlignment="Left" Margin="36,272,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="112,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
-        <Label Content="Папка" HorizontalAlignment="Left" Margin="46,333,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="112,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
-        <xctk:DateTimePicker Name="dateTimeClock" ValueChanged="DateTimeClock_ValueChanged" Value="{Binding CurrentDateTime}" Margin="250,23" Height="30"/>
+        <Label Content="Тип задачи" HorizontalAlignment="Left" Margin="333,99,0,0" VerticalAlignment="Top"/>
+        <Label Content="Периодичность" HorizontalAlignment="Left" Margin="561,99,0,0" VerticalAlignment="Top"/>
+        
+        <Label Visibility="Collapsed" Content="Источник" HorizontalAlignment="Left" Margin="36,272,0,0" VerticalAlignment="Top"/>
+        <TextBox Visibility="Collapsed" Name="urlTextBox"
+                 HorizontalAlignment="Left" Height="23" Margin="112,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
+        <Label Visibility="Collapsed" Content="Папка" HorizontalAlignment="Left" Margin="46,333,0,0" VerticalAlignment="Top"/>
+        <TextBox Visibility="Collapsed" Name="savePathTextBox"
+                 HorizontalAlignment="Left" Height="23" Margin="112,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
+
+        <Label Visibility="Collapsed" Content="Исходный путь" HorizontalAlignment="Left" Margin="36,272,0,0" VerticalAlignment="Top"/>
+        <TextBox Visibility="Collapsed" Name="directoryInitialPathTextBox"
+                 HorizontalAlignment="Left" Height="23" Margin="112,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
+        <Label Visibility="Collapsed" Content="Пункт назначения" HorizontalAlignment="Left" Margin="46,333,0,0" VerticalAlignment="Top"/>
+        <TextBox Visibility="Collapsed" Name="directoryDestinationPathTextBox"
+                 HorizontalAlignment="Left" Height="23" Margin="112,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
+
+        <Label Visibility="Collapsed" Content="Кому" HorizontalAlignment="Left" Margin="36,272,0,0" VerticalAlignment="Top"/>
+        <TextBox Visibility="Collapsed" Name="toWhomTextBox"
+                 HorizontalAlignment="Left" Height="23" Margin="112,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
+        <Label Visibility="Collapsed" Content="Тема" HorizontalAlignment="Left" Margin="46,333,0,0" VerticalAlignment="Top"/>
+        <TextBox Visibility="Collapsed" Name="topicTextBox"
+                 HorizontalAlignment="Left" Height="23" Margin="112,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
     </Grid>
 </Window>

@@ -1,7 +1,9 @@
 ﻿using JobScheduler.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,7 +13,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace JobScheduler.WPF
 {
@@ -24,16 +25,26 @@ namespace JobScheduler.WPF
         public MainWindow()
         {
             InitializeComponent();
+            dateAndTime.Value = DateTime.Now;
         }
 
-        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        private void DateAndTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            task.FirstStart = ((DateTime)calendar.SelectedDate);
+            task.FirstStart = (DateTime)dateAndTime.Value;
         }
 
-        private void DateTimeClock_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        private void DownloadFile(string url)
         {
-            MessageBox.Show(dateTimeClock);
+            using (var client = new WebClient())
+            {
+                string fileName = Path.GetFileName("http://video.wapos.ru/films/2011/04/11_14_1.mp4");
+                client.DownloadFile(url, fileName);
+            }
+        }
+
+        private void PeriodComboBox_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

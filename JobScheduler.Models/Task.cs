@@ -13,5 +13,6 @@ namespace JobScheduler.Models
         public DateTime NextStart { get; set; }
         public string Type { get; set; }
         public string Period { get; set; }
+        public bool OperationResult { get; set; } = true;
     }
 }
